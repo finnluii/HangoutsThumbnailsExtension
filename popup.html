@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Rearrange Hangout Thumbnails</title>
     <style>
+      body {
+        height: 200px;
+        width: 200px;
+        outline: none;
+        font-size:20px;
+      }
       button {
+        display: inline-block;
+
         height: 30px;
         width: 30px;
         outline: none;
@@ -10,7 +19,22 @@
     </style>
   </head>
   <body>
+    <!--<img src='./stay_hydrated.png' id='hydrateImage'>-->
+    <div>
+      Move thumbnails to the...
+      <button id='topButton'>Top</button>
+      <button id='bottomButton'>Bottom</button>
+      <button id='leftButton'>Left</button>
+      <button id='rightButton'>Right</button>
+    </div>
+    <div>
+      Or completely hide/unhide the participants
+      <button id='hideParticipantsButton'>Hide</button>
+      <button id='showParticipantsButton'>Show</button>
+    </div>
+
     <button id="changeColor"></button>
+
     <script src="popup.js"></script>
   </body>
 </html>

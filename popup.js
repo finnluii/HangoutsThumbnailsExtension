@@ -1,21 +1,34 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 'use strict';
 
-let changeColor = document.getElementById('changeColor');
+let topButton = document.getElementById('topButton');
+let bottomButton = document.getElementById('bottomButton');
 
-chrome.storage.sync.get('color', function(data) {
-  changeColor.style.backgroundColor = data.color;
-  changeColor.setAttribute('value', data.color);
+let hideParticipantsButton = document.getElementById('hideParticipantsButton');
+let showParticipantsButton = document.getElementById('showParticipantsButton');
+
+
+topButton.addEventListener('click', function() {
+    chrome.tabs.query({ active: true, currentWindow: true}, function(activeTabs) {
+        chrome.tabs.sendMessage(activeTabs[0].id, { action: 'changeToTop' });
+    });
 });
 
-changeColor.onclick = function(element) {
-  let color = element.target.value;
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.executeScript(
-        tabs[0].id,
-        {code: 'document.body.style.backgroundColor = "' + color + '";'});
-  });
-};
+bottomButton.addEventListener('click', function() {
+    chrome.tabs.query({ active: true, currentWindow: true}, function(activeTabs) {
+        chrome.tabs.sendMessage(activeTabs[0].id, { action: 'changeToBottom' });
+    });
+});
+
+hideParticipantsButton.addEventListener('click', function() {
+    chrome.tabs.query({ active: true, currentWindow: true}, function(activeTabs) {
+        chrome.tabs.sendMessage(activeTabs[0].id, { action: 'hideThumbnails' });
+    });
+});
+
+showParticipantsButton.addEventListener('click', function() {
+    chrome.tabs.query({ active: true, currentWindow: true}, function(activeTabs) {
+        chrome.tabs.sendMessage(activeTabs[0].id, { action: 'showThumbnails' });
+    });
+});
+
+
