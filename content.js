@@ -23,15 +23,18 @@ chrome.runtime.onMessage.addListener(function(request) {
 		let bottomBar = document.getElementsByClassName(bottomDivClass)[0];
 		// remove thumbnails from wherever it was originally
 		parentNode = thumbnailsDiv.parentNode.removeChild(thumbnailsDiv);
-		// Add the thumbnails to the top div 
+		// Add the thumbnails to the bottom div 
 		bottomBar.appendChild(thumbnailsDiv);
+
+    } else if (request.action === 'changeToLeft') {
+    	
 
     } else if (request.action === 'hideThumbnails') {
     	thumbnailsDiv.style.display = "none";
 
     } else if (request.action === 'showThumbnails') {
     	thumbnailsDiv.style.display = "block";
-    	
+
     }
 });
 

@@ -25,8 +25,7 @@
   },
   "content_scripts": [
       {
-        "matches": ["*://*/*"],
-      // "matches": ["https://hangouts.google.com/call/*"],
+      "matches": ["https://hangouts.google.com/call/*"],
       // "exclude_matches": ["*.google.com"],
       "js": ["content.js"],
       "run_at":"document_end"
