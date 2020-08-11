@@ -2,7 +2,7 @@
   "name": "Rearrange Hangouts Thumbnails",
   "version": "1.0",
   "description": "Rearrange Hangouts Thumbnails!",
-  "permissions": ["activeTab", "declarativeContent", "storage", "contextMenus"],
+  "permissions": ["activeTab", "declarativeContent", "storage"],
   // "options_page": "options.html",
   "background": {
     "scripts": ["background.js"],
@@ -26,7 +26,6 @@
   "content_scripts": [
       {
       "matches": ["https://hangouts.google.com/call/*"],
-      // "exclude_matches": ["*.google.com"],
       "js": ["content.js"],
       "run_at":"document_end"
 

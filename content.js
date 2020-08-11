@@ -27,7 +27,8 @@ chrome.runtime.onMessage.addListener(function(request) {
 		bottomBar.appendChild(thumbnailsDiv);
 
     } else if (request.action === 'changeToLeft') {
-    	
+    	// Loop through children thumbnail nodes
+    	// we have to stack them vertically???
 
     } else if (request.action === 'hideThumbnails') {
     	thumbnailsDiv.style.display = "none";

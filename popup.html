@@ -8,20 +8,42 @@
         width: 200px;
         outline: none;
         font-size:20px;
+        background-color:#E5E8E9;
       }
-      button {
-        display: inline-block;
+      button { 
+        display: block;
+        width:100%;
+        background:linear-gradient(to bottom, #c7ad45 5%, #2a9bbd 100%);
+        background-color:#c7ad45;
+        border-radius:9px;
+        border:1px solid #c7ad45;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:17px;
+        padding:16px 31px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #2f6627;
+      }
+      button:hover {
+        background:linear-gradient(to bottom, #2a9bbd 5%, #c7ad45 100%);
+        background-color:#2a9bbd;
+      }
+      button:active {
+        position:relative;
+        top:1px;
+      }
+
       }
     </style>
   </head>
   <body>
-    <!--<img src='./stay_hydrated.png' id='hydrateImage'>-->
     <div>
       Move thumbnails to the...
       <button id='topButton'>Top</button>
       <button id='bottomButton'>Bottom</button>
-      <button id='leftButton'>Left</button>
-      <button id='rightButton'>Right</button>
+      <button id='leftButton' style="display:none;">Left</button>
+      <button id='rightButton' style="display:none;">Right</button>
     </div>
     <div>
       Or completely hide/unhide the participants
