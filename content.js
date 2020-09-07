@@ -6,7 +6,7 @@ let thumbnailsDiv = document.getElementsByClassName("gSTPzb")[0];
 
 let topDivClass = "GhN39b";
 let bottomDivClass = "G1OBde";
-let middleDivClass = "p2hjYe.rCuEk";
+let middleDivClass = "p2hjYe rCuEk";
 
 chrome.runtime.onMessage.addListener(function(request) {
     if(request.action === 'changeToTop') {
@@ -29,6 +29,16 @@ chrome.runtime.onMessage.addListener(function(request) {
     } else if (request.action === 'changeToLeft') {
     	// Loop through children thumbnail nodes
     	// we have to stack them vertically???
+    	let videoBar = document.getElementsByClassName(middleDivClass)[0];
+    	parentNode = thumbnailsDiv.parentNode.removeChild(thumbnailsDiv);
+    	/*
+    	If just appending to the video bar, it ends up in the bottom right corner, with the bottom half of 
+    	the video cut off.
+    	Have to find a way to float in the middle of the video bar.
+    	After that, for each thumbnail, add it to a new line so it is vertically stacked
+    	instead of horizontal.
+    	*/
+    	videoBar.appendChild(thumbnailsDiv);
 
     } else if (request.action === 'hideThumbnails') {
     	thumbnailsDiv.style.display = "none";
